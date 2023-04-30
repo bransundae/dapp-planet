@@ -1,2 +1,3 @@
 export { HomeView } from "./home";
-export { BasicsView } from "./basics";
+export { LaunchView } from "./launch";
+export { CreateView } from "./create";

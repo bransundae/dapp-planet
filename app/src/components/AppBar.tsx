@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import Link from "next/link";
 import dynamic from 'next/dynamic';
 import React, { useState } from "react";
@@ -17,7 +16,7 @@ export const AppBar: React.FC = () => {
   return (
     <div>
       {/* NavBar / Header */}
-      <div className="navbar flex h-20 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
+      <div className="navbar flex h-20 flex-row md:mb-0 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
         <div className="navbar-start align-items-center">
           <div className="hidden sm:inline w-22 h-22 md:p-2 ml-10">
             <Link href="https://solana.com" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
@@ -54,16 +53,21 @@ export const AppBar: React.FC = () => {
         {/* Wallet & Settings */}
         <div className="navbar-end">
           <div className="hidden md:inline-flex align-items-center justify-items gap-6">
-          <NavElement
-            label="Home"
-            href="/"
-            navigationStarts={() => setIsNavOpen(false)}
-          />
-          <NavElement
-            label="Basics"
-            href="/basics"
-            navigationStarts={() => setIsNavOpen(false)}
-          />
+            <NavElement
+                label="Home"
+                href="/"
+                navigationStarts={() => setIsNavOpen(false)}
+            />
+            <NavElement
+              label="Dapps"
+              href="/"
+              navigationStarts={() => setIsNavOpen(false)}
+            />
+            <NavElement
+              label="Launch"
+              href="/launch"
+              navigationStarts={() => setIsNavOpen(false)}
+            />
           <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mr-6 " />
         </div>
           <label
@@ -83,7 +87,7 @@ export const AppBar: React.FC = () => {
             </div>
         </label>
       <div>
-        <span className="absolute block h-0.5 w-12 bg-zinc-600 rotate-90 right-14"></span>
+        <span className="absolute block h-0.5 w-12 bg-zinc-600 rotate-90 right-14"/>
       </div>
         <div className="dropdown dropdown-end">
           <div tabIndex={0} className="btn btn-square btn-ghost text-right mr-4">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {FC, useEffect, useState} from 'react'
 import {
   CheckCircleIcon,
   InformationCircleIcon,
@@ -7,8 +7,15 @@ import {
 import { XIcon } from '@heroicons/react/solid'
 import useNotificationStore from '../stores/useNotificationStore'
 import { useConnection } from '@solana/wallet-adapter-react';
-import { getExplorerUrl } from '../utils/explorer'
 import { useNetworkConfiguration } from 'contexts/NetworkConfigurationProvider';
+
+interface NotificationProps {
+  type: string;
+  message: string;
+  description?: string;
+  txid?: string;
+  onHide: () => void;
+}
 
 const NotificationList = () => {
   const { notifications, set: setNotificationStore } = useNotificationStore(
@@ -45,7 +52,7 @@ const NotificationList = () => {
   );
 }
 
-const Notification = ({ type, message, description, txid, onHide }) => {
+export const Notification: FC<NotificationProps> = ({ type, message, description, txid, onHide }) => {
   const { connection } = useConnection();
   const { networkConfiguration } = useNetworkConfiguration();
 

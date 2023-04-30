@@ -8,34 +8,17 @@ interface Props {
 
 export const ContentContainer: React.FC<Props> = ({ children }) => {
 
-  return (
-    <div className="flex-1 drawer h-52">
-      <input id="my-drawer" type="checkbox" className="grow drawer-toggle" />
-      <div className="items-center  drawer-content">
-        {children}
-      </div>
-      {/* SideBar / Drawer */}
-      <div className="drawer-side">
-        <label htmlFor="my-drawer" className="drawer-overlay gap-6"></label>
-
-        <ul className="p-4 overflow-y-auto menu w-80 bg-base-100 gap-10 sm:flex items-center">
-          <li>
-            <Text variant="heading" className='font-extrabold tracking-tighter text-center text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mt-10'>Menu</Text>
-          </li>
-          <li>
-          <NavElement
-            label="Home"
-            href="/"
-          />
-          </li>
-          <li>
-          <NavElement
-            label="Basics"
-            href="/basics"
-          />
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
+    return (
+        <div className="flex">
+            <div className="w-64 h-screen shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66 relative left-0 top-0 p-4">
+                {/* Add your sidebar content here */}
+            </div>
+            <div className="flex-1 pl-8">
+                <input id="my-drawer" type="checkbox" className="grow drawer-toggle" />
+                <div className="items-center drawer-content">
+                    {children}
+                </div>
+            </div>
+        </div>
+    );
 };
